@@ -1,0 +1,6 @@
+abstract final class AppRoutes {
+  static const splash = '/';
+  static const login = '/login';
+  static const shell = '/shell';
+  static const demo = '/demo';
+}

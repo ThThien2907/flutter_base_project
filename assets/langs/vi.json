@@ -1,0 +1,112 @@
+{
+  "app_name": "App Base",
+  "close": "Đóng",
+  "ok": "OK",
+  "retry": "Thử lại",
+  "cancel": "Hủy",
+  "agree": "Đồng ý",
+  "confirm": "Xác nhận",
+  "save": "Lưu",
+  "edit": "Chỉnh sửa",
+  "delete": "Xóa",
+  "back": "Quay lại",
+  "search": "Tìm kiếm",
+  "handling": "Đang xử lý...",
+  "success": "Thành công",
+  "placeholder": {
+    "title": "Trang Mẫu Nền Tảng",
+    "description": "Nền tảng kiến trúc Flutter Clean Architecture đã sẵn sàng.",
+    "theme_section": "Chế độ giao diện",
+    "language_section": "Ngôn ngữ",
+    "components_section": "Các thành phần Design System",
+    "dialog_test": "Kiểm tra Dialog",
+    "loading_test": "Kiểm tra Loading Overlay",
+    "dialog_demo_message": "Đây là hộp thoại thông báo mẫu từ Base.",
+    "input_placeholder": "Nhập văn bản thử nghiệm..."
+  },
+  "notification": {
+    "title": "Thông báo"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối"
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English"
+  },
+  "common": {
+    "or": "Hoặc",
+    "switch_language": "Đổi ngôn ngữ",
+    "no_data": "Không có dữ liệu",
+    "load_failed": "Tải dữ liệu thất bại",
+    "reload": "Tải lại"
+  },
+  "error": {
+    "error": "Lỗi",
+    "generic": "Đã có lỗi xảy ra. Vui lòng thử lại sau.",
+    "network": "Không có kết nối mạng. Vui lòng kiểm tra lại.",
+    "timeout": "Hết thời gian yêu cầu. Vui lòng thử lại.",
+    "unreadable_server_response": "Không thể đọc phản hồi từ máy chủ."
+  },
+  "network_error_mess": "Lỗi kết nối mạng",
+  "connection_timeout_mess": "Hết thời gian kết nối",
+  "send_timeout_mess": "Hết thời gian gửi dữ liệu",
+  "receive_timeout_mess": "Hết thời gian nhận phản hồi",
+  "connection_error_mess": "Lỗi kết nối máy chủ",
+  "bad_certificate_mess": "Chứng chỉ bảo mật không hợp lệ",
+  "request_cancelled_mess": "Yêu cầu đã bị hủy",
+  "upload_file_error_mess": "Lỗi khi tải tệp lên",
+  "error_code": {
+    "server_error": "Lỗi máy chủ, vui lòng thử lại sau",
+    "unknown": "Lỗi không xác định",
+    "auth": {
+      "invalid_credentials": "Thông tin đăng nhập không chính xác",
+      "token_expired": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.",
+      "unauthorized": "Không có quyền truy cập",
+      "account_locked": "Tài khoản tạm thời bị khóa"
+    },
+    "validation": {
+      "invalid_request": "Yêu cầu không hợp lệ"
+    }
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "subtitle": "Chào mừng bạn trở lại",
+    "phone_label": "Số điện thoại / Tài khoản",
+    "phone_hint": "Nhập số điện thoại hoặc tài khoản",
+    "password_label": "Mật khẩu",
+    "password_hint": "Nhập mật khẩu của bạn",
+    "sign_in": "Đăng nhập",
+    "login_failed": "Đăng nhập thất bại",
+    "device_id_login_error": "Không thể lấy thông tin mã thiết bị"
+  },
+  "shell": {
+    "home_tab": "Trang chủ",
+    "settings_tab": "Cài đặt",
+    "welcome_back": "Xin chào!",
+    "account_info": "Thông tin tài khoản",
+    "logout": "Đăng xuất",
+    "logout_confirm_title": "Xác nhận đăng xuất",
+    "logout_confirm_message": "Bạn có chắc chắn muốn đăng xuất không?"
+  },
+  "splash": {
+    "loading": "Đang khởi động ứng dụng...",
+    "retry_session": "Không thể kết nối đến máy chủ. Vui lòng thử lại."
+  },
+  "validation": {
+    "email_required": "Vui lòng nhập email",
+    "invalid_email_format": "Email không đúng định dạng",
+    "username_required": "Vui lòng nhập tên người dùng",
+    "username_min_length": "Tên người dùng phải có ít nhất 3 ký tự",
+    "full_name_required": "Vui lòng nhập họ và tên",
+    "full_name_min_length": "Họ và tên phải có ít nhất 2 ký tự",
+    "text_required": "Vui lòng không để trống trường này",
+    "phone_required": "Vui lòng nhập số điện thoại hoặc tài khoản",
+    "phone_invalid": "Số điện thoại không hợp lệ",
+    "password_required": "Vui lòng nhập mật khẩu",
+    "password_short": "Mật khẩu phải có ít nhất 6 ký tự",
+    "confirm_password_required": "Vui lòng nhập lại mật khẩu",
+    "confirm_password_mismatch": "Mật khẩu xác nhận không khớp"
+  }
+}
