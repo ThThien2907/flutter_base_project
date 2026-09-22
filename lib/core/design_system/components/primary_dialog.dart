@@ -178,7 +178,9 @@ class PrimaryDialog {
         bottomActions: negativeButtonText == null
             ? PrimaryButton.filled(
                 label:
-                    positiveButtonText?.tr() ?? closeText?.tr() ?? "close".tr(),
+                    positiveButtonText?.tr() ??
+                    closeText?.tr() ??
+                    context.tr("close"),
                 height: AppDimensions.smallButtonHeight,
                 onPressed: () {
                   Navigator.pop(dialogContext, true);
@@ -207,7 +209,7 @@ class PrimaryDialog {
                       label:
                           positiveButtonText?.tr() ??
                           closeText?.tr() ??
-                          "close".tr(),
+                          context.tr("close"),
                       height: AppDimensions.smallButtonHeight,
                       onPressed: () {
                         Navigator.pop(dialogContext, true);
@@ -266,7 +268,7 @@ class PrimaryDialog {
           ],
         ),
         bottomActions: PrimaryButton.filled(
-          label: buttonText ?? "close".tr(),
+          label: buttonText ?? context.tr("close"),
           height: AppDimensions.smallButtonHeight,
           onPressed: () {
             Navigator.pop(dialogContext, true);
@@ -503,11 +505,7 @@ class _CustomDialogView extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ?headerIcon,
-                  ?body,
-                  ?bottomActions,
-                ],
+                children: [?headerIcon, ?body, ?bottomActions],
               ),
             ),
           ),

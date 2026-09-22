@@ -15,7 +15,7 @@ class LanguageSwitchButton extends StatelessWidget {
         : _viLocale;
 
     return Tooltip(
-      message: 'common.switch_language'.tr(),
+      message: context.tr('common.switch_language'),
       child: PrimaryCard(
         onPressed: () => context.setLocale(nextLocale),
         borderRadius: BorderRadius.circular(AppDimensions.radiusLg),

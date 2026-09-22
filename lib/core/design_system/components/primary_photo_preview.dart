@@ -33,12 +33,12 @@ class PrimaryPhotoPreview {
 
 class PrimaryPhotoPreviewDialog extends StatelessWidget {
   const PrimaryPhotoPreviewDialog.file({super.key, required String path})
-      : source = PrimaryPhotoPreviewSource.file,
-        value = path;
+    : source = PrimaryPhotoPreviewSource.file,
+      value = path;
 
   const PrimaryPhotoPreviewDialog.network({super.key, required String url})
-      : source = PrimaryPhotoPreviewSource.network,
-        value = url;
+    : source = PrimaryPhotoPreviewSource.network,
+      value = url;
 
   final PrimaryPhotoPreviewSource source;
   final String value;
@@ -63,7 +63,7 @@ class PrimaryPhotoPreviewDialog extends StatelessWidget {
             right: AppSpacing.md,
             child: SafeArea(
               child: Tooltip(
-                message: 'close'.tr(),
+                message: context.tr('close'),
                 child: PrimaryAnimatedPressableWidget(
                   onPressed: () => Navigator.of(context).pop(),
                   borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
@@ -91,21 +91,21 @@ class PrimaryPhotoPreviewDialog extends StatelessWidget {
   Widget _buildImage(BuildContext context) {
     return switch (source) {
       PrimaryPhotoPreviewSource.file => Image.file(
-          File(value),
-          fit: BoxFit.contain,
-          errorBuilder: _buildError,
-        ),
+        File(value),
+        fit: BoxFit.contain,
+        errorBuilder: _buildError,
+      ),
       PrimaryPhotoPreviewSource.network => Image.network(
-          value,
-          fit: BoxFit.contain,
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) return child;
-            return CircularProgressIndicator(
-              color: Theme.of(context).colorScheme.primary,
-            );
-          },
-          errorBuilder: _buildError,
-        ),
+        value,
+        fit: BoxFit.contain,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return CircularProgressIndicator(
+            color: Theme.of(context).colorScheme.primary,
+          );
+        },
+        errorBuilder: _buildError,
+      ),
     };
   }
 

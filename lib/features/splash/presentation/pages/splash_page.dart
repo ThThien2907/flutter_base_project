@@ -149,7 +149,7 @@ class _SplashPageState extends State<SplashPage> {
                           ),
                           AppSpacing.vertical(AppSpacing.sm),
                           PrimaryText(
-                            'splash.loading'.tr(),
+                            context.tr('splash.loading'),
                             style: AppTextStyles.bodyMedium.copyWith(
                               color: Colors.white70,
                             ),
@@ -175,13 +175,13 @@ class _SplashPageState extends State<SplashPage> {
                                   AppSpacing.vertical(AppSpacing.sm),
                                   PrimaryText(
                                     errorMessage?.tr() ??
-                                        'splash.retry_session'.tr(),
+                                        context.tr('splash.retry_session'),
                                     style: AppTextStyles.bodyMedium,
                                     textAlign: TextAlign.center,
                                   ),
                                   AppSpacing.vertical(AppSpacing.md),
                                   PrimaryButton.filled(
-                                    label: 'retry'.tr(),
+                                    label: context.tr('retry'),
                                     onPressed: () {
                                       if (isSplashError) {
                                         _splashBloc.retry();

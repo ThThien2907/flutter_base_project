@@ -35,8 +35,8 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             PrimaryTextField(
               controller: _usernameController,
-              label: 'login.phone_label'.tr(),
-              hintText: 'login.phone_hint'.tr(),
+              label: context.tr('login.phone_label'),
+              hintText: context.tr('login.phone_hint'),
               textInputAction: TextInputAction.next,
               validator: Validators.validateEmptyField,
               prefixIcon: const Icon(Icons.person_rounded),
@@ -44,8 +44,8 @@ class _LoginFormState extends State<LoginForm> {
             AppSpacing.vertical(AppSpacing.md),
             PrimaryTextField(
               controller: _passwordController,
-              label: 'login.password_label'.tr(),
-              hintText: 'login.password_hint'.tr(),
+              label: context.tr('login.password_label'),
+              hintText: context.tr('login.password_hint'),
               obscureText: true,
               textInputAction: TextInputAction.done,
               validator: Validators.validateEmptyField,
@@ -54,7 +54,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             AppSpacing.vertical(AppSpacing.lg),
             PrimaryButton.filled(
-              label: 'login.sign_in'.tr(),
+              label: context.tr('login.sign_in'),
               trailingIcon: const Icon(Icons.arrow_forward_rounded),
               onPressed: _submit,
             ),

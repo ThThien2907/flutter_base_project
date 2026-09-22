@@ -28,7 +28,7 @@ class HomeTabView extends StatelessWidget {
                   final displayName =
                       user?.displayName ??
                       user?.userLogin ??
-                      'shell.welcome_back'.tr();
+                      context.tr('shell.welcome_back');
 
                   return PrimaryCard(
                     child: Column(
@@ -74,7 +74,7 @@ class HomeTabView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     PrimaryText(
-                      'placeholder.description'.tr(),
+                      context.tr('placeholder.description'),
                       style: AppTextStyles.bodyLarge,
                     ),
                     AppSpacing.vertical(AppSpacing.md),
@@ -91,6 +91,22 @@ class HomeTabView extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              PrimaryButton.outlined(
+                label: context.tr('shell.logout'),
+                icon: const Icon(Icons.logout_rounded, color: AppColors.error),
+                onPressed: () {
+                  PrimaryDialog.showQuestionDialog<void>(
+                    context,
+                    title: 'shell.logout_confirm_title',
+                    message: 'shell.logout_confirm_message',
+                    positiveButtonText: 'shell.logout',
+                    negativeButtonText: 'cancel',
+                    onPositiveTapped: () {
+                      authBloc.fetchUserData();
+                    },
+                  );
+                },
               ),
             ],
           ),

@@ -20,12 +20,12 @@ class LoginHeader extends StatelessWidget {
         ),
         AppSpacing.vertical(AppSpacing.xs),
         PrimaryText(
-          'login.title'.tr(),
+          context.tr('login.title'),
           style: AppTextStyles.displaySmall.copyWith(height: 1.2),
         ),
         AppSpacing.vertical(AppSpacing.xs),
         PrimaryText(
-          'login.subtitle'.tr(),
+          context.tr('login.subtitle'),
           style: AppTextStyles.bodyMedium,
           color: AppColors.inkMuted,
         ),

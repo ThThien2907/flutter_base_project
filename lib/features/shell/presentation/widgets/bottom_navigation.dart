@@ -29,12 +29,12 @@ class BottomNavigation extends StatelessWidget {
         NavigationDestination(
           icon: const Icon(Icons.home_outlined),
           selectedIcon: const Icon(Icons.home_rounded),
-          label: 'shell.home_tab'.tr(),
+          label: context.tr('shell.home_tab'),
         ),
         NavigationDestination(
           icon: const Icon(Icons.settings_outlined),
           selectedIcon: const Icon(Icons.settings_rounded),
-          label: 'shell.settings_tab'.tr(),
+          label: context.tr('shell.settings_tab'),
         ),
       ],
     );

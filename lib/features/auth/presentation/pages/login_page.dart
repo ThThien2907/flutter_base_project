@@ -43,7 +43,8 @@ class _LoginPageState extends State<LoginPage> {
         if (!context.mounted) return;
         await PrimaryDialog.showErrorDialog(
           context,
-          message: state.loginResource.message?.tr() ?? 'error.generic'.tr(),
+          message:
+              state.loginResource.message?.tr() ?? context.tr('error.generic'),
         );
         break;
     }
@@ -72,7 +73,8 @@ class _LoginPageState extends State<LoginPage> {
         if (!context.mounted) return;
         await PrimaryDialog.showErrorDialog(
           context,
-          message: state.userResource.message?.tr() ?? 'error.generic'.tr(),
+          message:
+              state.userResource.message?.tr() ?? context.tr('error.generic'),
         );
         break;
     }

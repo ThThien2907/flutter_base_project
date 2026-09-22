@@ -60,7 +60,7 @@ class PrimaryDismissible extends StatelessWidget {
     await PrimaryDialog.showQuestionDialog(
       context,
       message: confirmMessage,
-      positiveButtonText: "delete".tr(),
+      positiveButtonText: context.tr("delete"),
       onPositiveTapped: () {
         result = true;
       },

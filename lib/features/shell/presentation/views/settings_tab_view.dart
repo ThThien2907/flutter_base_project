@@ -46,7 +46,7 @@ class SettingsTabView extends StatelessWidget {
           previous.logoutResource != current.logoutResource,
       listener: _handleLogoutResource,
       child: Scaffold(
-        appBar: PrimaryAppBar(title: 'shell.settings_tab'.tr()),
+        appBar: PrimaryAppBar(title: context.tr('shell.settings_tab')),
         body: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(AppSpacing.lg),
@@ -72,7 +72,9 @@ class SettingsTabView extends StatelessWidget {
                               ),
                               AppSpacing.horizontal(AppSpacing.sm),
                               PrimaryText(
-                                isDark ? 'theme.dark'.tr() : 'theme.light'.tr(),
+                                isDark
+                                    ? context.tr('theme.dark')
+                                    : context.tr('theme.light'),
                                 style: AppTextStyles.titleMedium,
                               ),
                             ],
@@ -105,7 +107,7 @@ class SettingsTabView extends StatelessWidget {
                           ),
                           AppSpacing.horizontal(AppSpacing.sm),
                           PrimaryText(
-                            'common.switch_language'.tr(),
+                            context.tr('common.switch_language'),
                             style: AppTextStyles.titleMedium,
                           ),
                         ],
@@ -118,7 +120,7 @@ class SettingsTabView extends StatelessWidget {
 
                 // Logout Button
                 PrimaryButton.outlined(
-                  label: 'shell.logout'.tr(),
+                  label: context.tr('shell.logout'),
                   icon: const Icon(
                     Icons.logout_rounded,
                     color: AppColors.error,
