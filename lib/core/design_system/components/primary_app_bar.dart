@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_dimensions.dart';
-import '../theme/app_spacing.dart';
 import '../theme/app_text_style.dart';
 import 'primary_text.dart';
 
@@ -61,7 +61,7 @@ class _PrimaryAppBarState extends State<PrimaryAppBar> {
         centerTitle: widget.centerTitle,
         automaticallyImplyLeading: false,
         leading: widget.leading ?? _buildLeading(context),
-        leadingWidth: AppDimensions.buttonHeight + AppSpacing.sm,
+        leadingWidth: AppDimensions.buttonHeight.w + AppDimensions.sm.w,
         title: PrimaryText(
           widget.title,
           style: AppTextStyles.titleXLarge,

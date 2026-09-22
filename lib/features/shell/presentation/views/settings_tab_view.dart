@@ -49,7 +49,7 @@ class SettingsTabView extends StatelessWidget {
         appBar: PrimaryAppBar(title: context.tr('shell.settings_tab')),
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(AppSpacing.lg),
+            padding: EdgeInsets.all(AppDimensions.lg.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -70,7 +70,7 @@ class SettingsTabView extends StatelessWidget {
                                     : Icons.light_mode_rounded,
                                 color: AppColors.primary,
                               ),
-                              AppSpacing.horizontal(AppSpacing.sm),
+                              AppSpacing.horizontal(AppDimensions.sm),
                               PrimaryText(
                                 isDark
                                     ? context.tr('theme.dark')
@@ -92,7 +92,7 @@ class SettingsTabView extends StatelessWidget {
                     );
                   },
                 ),
-                AppSpacing.vertical(AppSpacing.md),
+                AppSpacing.vertical(AppDimensions.md),
 
                 // Language setting card
                 PrimaryCard(
@@ -105,7 +105,7 @@ class SettingsTabView extends StatelessWidget {
                             Icons.language_rounded,
                             color: AppColors.primary,
                           ),
-                          AppSpacing.horizontal(AppSpacing.sm),
+                          AppSpacing.horizontal(AppDimensions.sm),
                           PrimaryText(
                             context.tr('common.switch_language'),
                             style: AppTextStyles.titleMedium,
@@ -116,7 +116,7 @@ class SettingsTabView extends StatelessWidget {
                     ],
                   ),
                 ),
-                AppSpacing.vertical(AppSpacing.xl),
+                AppSpacing.vertical(AppDimensions.xl),
 
                 // Logout Button
                 PrimaryButton.outlined(

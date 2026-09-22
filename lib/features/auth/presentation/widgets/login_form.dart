@@ -27,7 +27,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return PrimaryCard(
-      padding: const EdgeInsets.all(AppSpacing.lg),
+      padding: EdgeInsets.all(AppDimensions.lg.r),
       child: Form(
         key: _formKey,
         child: Column(
@@ -41,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
               validator: Validators.validateEmptyField,
               prefixIcon: const Icon(Icons.person_rounded),
             ),
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
             PrimaryTextField(
               controller: _passwordController,
               label: context.tr('login.password_label'),
@@ -52,7 +52,7 @@ class _LoginFormState extends State<LoginForm> {
               prefixIcon: const Icon(Icons.lock_rounded),
               onSubmitted: (_) => _submit(),
             ),
-            AppSpacing.vertical(AppSpacing.lg),
+            AppSpacing.vertical(AppDimensions.lg),
             PrimaryButton.filled(
               label: context.tr('login.sign_in'),
               trailingIcon: const Icon(Icons.arrow_forward_rounded),

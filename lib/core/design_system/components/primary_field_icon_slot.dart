@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
 
@@ -15,8 +16,8 @@ class PrimaryFieldIconSlot extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimensions.radiusXs),
       ),
       child: SizedBox(
-        width: 42,
-        height: 42,
+        width: 42.w,
+        height: 42.h,
         child: Center(
           child: IconTheme(
             data: IconThemeData(

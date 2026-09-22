@@ -20,15 +20,15 @@ class LanguageSwitchButton extends StatelessWidget {
         onPressed: () => context.setLocale(nextLocale),
         borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.sm,
-            vertical: AppSpacing.xs,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.sm.r,
+            vertical: AppDimensions.xs.r,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.language_rounded, size: AppDimensions.iconSm),
-              AppSpacing.horizontal(AppSpacing.xs),
+              Icon(Icons.language_rounded, size: AppDimensions.iconSm),
+              AppSpacing.horizontal(AppDimensions.xs),
               PrimaryText(languageCode, style: AppTextStyles.labelSmall),
             ],
           ),

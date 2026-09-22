@@ -1,5 +1,19 @@
 # flutter_base_project
 
+## Responsive sizing
+
+The app is initialized with `flutter_screenutil_plus` using a `375 x 812`
+design frame. Update `AppScreenConfig.designSize` when the source design uses a
+different base frame.
+
+- Define raw design tokens such as `xs`, `sm`, and `md` in `AppDimensions`.
+- Use `AppSpacing.horizontal(AppDimensions.md)` and
+  `AppSpacing.vertical(AppDimensions.md)` for gaps; these apply `.w` and `.h`.
+- Use `.r` for padding and radius, `.w` for width, `.h` for height, and `.sp`
+  for font size. `AppTextStyles` already applies `.sp` to every text token.
+- Icon and radius tokens already apply `.r`, so use `AppDimensions.iconLg` and
+  `AppDimensions.radiusLg` directly.
+
 
 ```sh
 dart run build_runner build --delete-conflicting-outputs

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_dimensions.dart';
@@ -179,27 +180,27 @@ class _PrimaryAutoCompleteTextFieldState<T>
               children: [
                 PrimaryText(widget.label!, style: AppTextStyles.bodyLarge),
                 if (widget.isRequired)
-                  const PrimaryText(
+                  PrimaryText(
                     ' *',
                     style: AppTextStyles.bodyLarge,
                     color: AppColors.error,
                   ),
               ],
             ),
-            AppSpacing.vertical(AppSpacing.xs),
+            AppSpacing.vertical(AppDimensions.xs),
           ],
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: _openSearchSheet,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 160),
-              height: isMultiline ? null : AppDimensions.inputHeight,
-              constraints: const BoxConstraints(
-                minHeight: AppDimensions.inputHeight,
+              height: isMultiline ? null : AppDimensions.inputHeight.h,
+              constraints: BoxConstraints(
+                minHeight: AppDimensions.inputHeight.h,
               ),
               padding: EdgeInsets.symmetric(
-                horizontal: AppSpacing.sm,
-                vertical: isMultiline ? AppSpacing.sm : 0,
+                horizontal: AppDimensions.sm.r,
+                vertical: isMultiline ? AppDimensions.sm.r : 0,
               ),
               decoration: BoxDecoration(
                 color: widget.enabled
@@ -216,7 +217,7 @@ class _PrimaryAutoCompleteTextFieldState<T>
                 children: [
                   if (widget.prefixIcon != null) ...[
                     PrimaryFieldIconSlot(child: widget.prefixIcon!),
-                    AppSpacing.horizontal(AppSpacing.sm),
+                    AppSpacing.horizontal(AppDimensions.sm),
                   ],
                   Expanded(
                     child: TextFormField(
@@ -273,7 +274,7 @@ class _PrimaryAutoCompleteTextFieldState<T>
                     ),
                   ),
                   if (widget.suffixIcon != null) ...[
-                    AppSpacing.horizontal(AppSpacing.sm),
+                    AppSpacing.horizontal(AppDimensions.sm),
                     IconTheme(
                       data: IconThemeData(
                         color: colorScheme.onSurface.withValues(alpha: 0.62),
@@ -287,9 +288,9 @@ class _PrimaryAutoCompleteTextFieldState<T>
             ),
           ),
           if (errorText != null) ...[
-            AppSpacing.vertical(AppSpacing.xs),
+            AppSpacing.vertical(AppDimensions.xs),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+              padding: EdgeInsets.symmetric(horizontal: AppDimensions.md.r),
               child: PrimaryText(
                 errorText!,
                 style: AppTextStyles.caption,
@@ -298,9 +299,9 @@ class _PrimaryAutoCompleteTextFieldState<T>
             ),
           ],
           if (widget.instruction != null) ...[
-            AppSpacing.vertical(AppSpacing.xs),
+            AppSpacing.vertical(AppDimensions.xs),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+              padding: EdgeInsets.symmetric(horizontal: AppDimensions.md.r),
               child: PrimaryText(
                 widget.instruction!,
                 color: AppColors.inkSoft,
@@ -458,27 +459,27 @@ class _AutocompleteSearchSheetState<T>
         heightFactor: 0.86,
         child: Material(
           color: colorScheme.surface,
-          borderRadius: const BorderRadius.vertical(
+          borderRadius: BorderRadius.vertical(
             top: Radius.circular(AppDimensions.radiusMd),
           ),
           clipBehavior: Clip.antiAlias,
           child: Column(
             children: [
-              AppSpacing.vertical(AppSpacing.xs),
+              AppSpacing.vertical(AppDimensions.xs),
               Container(
-                width: 40,
-                height: 4,
+                width: 40.w,
+                height: 4.h,
                 decoration: BoxDecoration(
                   color: colorScheme.outlineVariant,
                   borderRadius: BorderRadius.circular(AppDimensions.radiusXs),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  AppSpacing.md,
-                  AppSpacing.md,
-                  AppSpacing.md,
-                  AppSpacing.sm,
+                padding: EdgeInsets.fromLTRB(
+                  AppDimensions.md.r,
+                  AppDimensions.md.r,
+                  AppDimensions.md.r,
+                  AppDimensions.sm.r,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -498,7 +499,7 @@ class _AutocompleteSearchSheetState<T>
                         ),
                       ],
                     ),
-                    AppSpacing.vertical(AppSpacing.sm),
+                    AppSpacing.vertical(AppDimensions.sm),
                     TextField(
                       controller: _searchController,
                       focusNode: _searchFocusNode,
@@ -560,7 +561,7 @@ class _AutocompleteSearchSheetState<T>
                     : _options.isEmpty
                     ? Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(AppSpacing.md),
+                          padding: EdgeInsets.all(AppDimensions.md.r),
                           child: PrimaryText(
                             widget.hintText,
                             style: AppTextStyles.bodyMedium,
@@ -574,10 +575,10 @@ class _AutocompleteSearchSheetState<T>
                     : ListView.separated(
                         keyboardDismissBehavior:
                             ScrollViewKeyboardDismissBehavior.onDrag,
-                        padding: const EdgeInsets.only(bottom: AppSpacing.md),
+                        padding: EdgeInsets.only(bottom: AppDimensions.md.r),
                         itemCount: _options.length,
                         separatorBuilder: (_, _) => Divider(
-                          height: 1,
+                          height: 1.h,
                           color: colorScheme.outlineVariant,
                         ),
                         itemBuilder: (context, index) {
@@ -586,9 +587,9 @@ class _AutocompleteSearchSheetState<T>
                           return InkWell(
                             onTap: () => _selectOption(item),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: AppSpacing.md,
-                                vertical: AppSpacing.sm,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: AppDimensions.md.r,
+                                vertical: AppDimensions.sm.r,
                               ),
                               child: PrimaryText(
                                 _displayString(item),

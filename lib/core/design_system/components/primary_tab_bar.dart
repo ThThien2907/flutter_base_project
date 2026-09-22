@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
-import '../theme/app_spacing.dart';
 import '../theme/app_text_style.dart';
 
 class PrimaryTabBar extends StatelessWidget {
@@ -29,9 +29,9 @@ class PrimaryTabBar extends StatelessWidget {
 
     return Container(
       height: height,
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.xxs,
-        vertical: AppSpacing.xxs,
+      padding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.xxs.r,
+        vertical: AppDimensions.xxs.r,
       ),
       decoration: BoxDecoration(
         borderRadius:
@@ -60,7 +60,7 @@ class PrimaryTabBar extends StatelessWidget {
         tabAlignment:
             isScrollable == true ? TabAlignment.start : TabAlignment.fill,
         tabs: items
-            .map(((item) => Tab(text: item, height: AppSpacing.xxl)))
+            .map(((item) => Tab(text: item, height: AppDimensions.xxl.h)))
             .toList(),
         onTap: onTap,
       ),

@@ -4,12 +4,14 @@ import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../core/design_system/components/primary_dialog.dart';
 import '../core/design_system/components/primary_loading.dart';
 import '../core/design_system/theme/app_theme.dart';
 import '../core/network/api_interceptor.dart';
 import 'config/app_identity.dart';
+import 'config/app_screen_config.dart';
 import 'di/injection.dart';
 import 'router/app_router.dart';
 import 'router/app_routes.dart';
@@ -29,12 +31,19 @@ class BaseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-      supportedLocales: const [Locale('vi'), Locale('en')],
-      path: 'assets/langs',
-      startLocale: const Locale('vi'),
-      fallbackLocale: const Locale('vi'),
-      assetLoader: assetLoader ?? const RootBundleAssetLoader(),
+    return ScreenUtilPlusInit(
+      designSize: AppScreenConfig.designSize,
+      minTextAdapt: true,
+      splitScreenMode: true,
+      autoRebuild: true,
+      builder: (_, child) => EasyLocalization(
+        supportedLocales: const [Locale('vi'), Locale('en')],
+        path: 'assets/langs',
+        startLocale: const Locale('vi'),
+        fallbackLocale: const Locale('vi'),
+        assetLoader: assetLoader ?? const RootBundleAssetLoader(),
+        child: child!,
+      ),
       child: const _MaterialApp(),
     );
   }

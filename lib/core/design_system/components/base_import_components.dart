@@ -1,6 +1,7 @@
 export 'package:collection/collection.dart';
 export 'package:easy_localization/easy_localization.dart' hide TextDirection;
 export 'package:flutter/material.dart';
+export 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 export '../theme/app_colors.dart';
 export '../theme/app_dimensions.dart';

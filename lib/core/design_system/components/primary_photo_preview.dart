@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_dimensions.dart';
-import '../theme/app_spacing.dart';
 import 'primary_animated_pressable_widget.dart';
 import 'primary_frame.dart';
 
@@ -59,8 +59,8 @@ class PrimaryPhotoPreviewDialog extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: AppSpacing.lg,
-            right: AppSpacing.md,
+            top: AppDimensions.lg.h,
+            right: AppDimensions.md.w,
             child: SafeArea(
               child: Tooltip(
                 message: context.tr('close'),
@@ -68,12 +68,12 @@ class PrimaryPhotoPreviewDialog extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                   borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
                   child: PrimaryFrame(
-                    width: AppSpacing.xl,
-                    height: AppSpacing.xl,
+                    width: AppDimensions.xl.w,
+                    height: AppDimensions.xl.h,
                     color: AppColors.error,
                     boxShadow: AppColors.strongShadow,
                     isCircle: true,
-                    child: const Icon(
+                    child: Icon(
                       Icons.close_rounded,
                       color: Colors.white,
                       size: AppDimensions.iconXSm,

@@ -105,14 +105,14 @@ class _LoginPageState extends State<LoginPage> {
         child: Scaffold(
           body: SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.lg,
-                vertical: AppSpacing.xl,
+              padding: EdgeInsets.symmetric(
+                horizontal: AppDimensions.lg.r,
+                vertical: AppDimensions.xl.r,
               ),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: AppDimensions.appMaxWidth,
+                  constraints: BoxConstraints(
+                    maxWidth: AppDimensions.appMaxWidth.w,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,9 +121,9 @@ class _LoginPageState extends State<LoginPage> {
                         alignment: Alignment.centerRight,
                         child: LanguageSwitchButton(),
                       ),
-                      AppSpacing.vertical(AppSpacing.lg),
+                      AppSpacing.vertical(AppDimensions.lg),
                       const LoginHeader(),
-                      AppSpacing.vertical(AppSpacing.xl),
+                      AppSpacing.vertical(AppDimensions.xl),
                       const LoginForm(),
                     ],
                   ),

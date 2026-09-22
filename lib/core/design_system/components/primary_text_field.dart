@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_dimensions.dart';
@@ -102,27 +103,27 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
             children: [
               PrimaryText(widget.label!, style: AppTextStyles.bodyLarge),
               if (widget.isRequired)
-                const PrimaryText(
+                PrimaryText(
                   ' *',
                   style: AppTextStyles.bodyLarge,
                   color: AppColors.error,
                 ),
             ],
           ),
-          AppSpacing.vertical(AppSpacing.xs),
+          AppSpacing.vertical(AppDimensions.xs),
         ],
         GestureDetector(
           behavior: HitTestBehavior.translucent,
           onTap: widget.enabled ? _requestTextFieldFocus : null,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 160),
-            height: isMultiline ? null : AppDimensions.inputHeight,
-            constraints: const BoxConstraints(
-              minHeight: AppDimensions.inputHeight,
+            height: isMultiline ? null : AppDimensions.inputHeight.h,
+            constraints: BoxConstraints(
+              minHeight: AppDimensions.inputHeight.h,
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: AppSpacing.sm,
-              vertical: isMultiline ? AppSpacing.sm : 0,
+              horizontal: AppDimensions.sm.r,
+              vertical: isMultiline ? AppDimensions.sm.r : 0,
             ),
             decoration: BoxDecoration(
               color: widget.enabled
@@ -139,7 +140,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
               children: [
                 if (widget.prefixIcon != null) ...[
                   PrimaryFieldIconSlot(child: widget.prefixIcon!),
-                  AppSpacing.horizontal(AppSpacing.sm),
+                  AppSpacing.horizontal(AppDimensions.sm),
                 ],
                 Expanded(
                   child: TextFormField(
@@ -184,7 +185,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                   ),
                 ),
                 if (widget.obscureText) ...[
-                  AppSpacing.horizontal(AppSpacing.sm),
+                  AppSpacing.horizontal(AppDimensions.sm),
                   IconButton(
                     focusNode: _visibilityFocusNode,
                     tooltip: _obscureText ? 'Show password' : 'Hide password',
@@ -198,13 +199,13 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                     iconSize: AppDimensions.iconMd,
                     visualDensity: VisualDensity.compact,
                     padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints.tightFor(
-                      width: 40,
-                      height: 40,
+                    constraints: BoxConstraints.tightFor(
+                      width: 40.w,
+                      height: 40.h,
                     ),
                   ),
                 ] else if (widget.suffixIcon != null) ...[
-                  AppSpacing.horizontal(AppSpacing.sm),
+                  AppSpacing.horizontal(AppDimensions.sm),
                   IconTheme(
                     data: IconThemeData(
                       color: colorScheme.onSurface.withValues(alpha: 0.62),
@@ -218,9 +219,9 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
           ),
         ),
         if (resolvedErrorText != null) ...[
-          AppSpacing.vertical(AppSpacing.xs),
+          AppSpacing.vertical(AppDimensions.xs),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+            padding: EdgeInsets.symmetric(horizontal: AppDimensions.md.r),
             child: PrimaryText(
               resolvedErrorText,
               style: AppTextStyles.caption,

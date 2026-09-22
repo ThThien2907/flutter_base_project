@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
 import '../theme/app_spacing.dart';
@@ -80,7 +81,8 @@ class PrimaryButton extends StatelessWidget {
     final background = enabled
         ? (_isOutlined ? colorScheme.surface : colorScheme.primary)
         : colorScheme.surfaceContainerHighest;
-    final buttonHeight = height ?? AppDimensions.buttonHeight;
+    final buttonHeight = height ?? AppDimensions.buttonHeight.h;
+    final iconButtonWidth = height ?? AppDimensions.buttonHeight.w;
 
     final content = _buildContent(foreground);
     final button = PrimaryAnimatedPressableWidget(
@@ -92,9 +94,9 @@ class PrimaryButton extends StatelessWidget {
         height: buttonHeight,
         width: expand
             ? double.infinity
-            : (_isIconOnly && label == null ? buttonHeight : null),
+            : (_isIconOnly && label == null ? iconButtonWidth : null),
         padding: EdgeInsets.symmetric(
-          horizontal: _isIconOnly ? AppSpacing.md : AppSpacing.sm,
+          horizontal: (_isIconOnly ? AppDimensions.md : AppDimensions.sm).r,
         ),
         decoration: BoxDecoration(
           color: background,
@@ -109,8 +111,8 @@ class PrimaryButton extends StatelessWidget {
               : [
                   BoxShadow(
                     color: colorScheme.primary.withValues(alpha: 0.15),
-                    blurRadius: 5,
-                    offset: const Offset(0, 4),
+                    blurRadius: 5.r,
+                    offset: Offset(0, 4.h),
                   ),
                 ],
         ),
@@ -149,7 +151,7 @@ class PrimaryButton extends StatelessWidget {
             data: IconThemeData(color: foreground, size: AppDimensions.iconMd),
             child: icon!,
           ),
-          AppSpacing.horizontal(AppSpacing.xxs),
+          AppSpacing.horizontal(AppDimensions.xxs),
         ],
         Flexible(
           child: PrimaryText(
@@ -161,7 +163,7 @@ class PrimaryButton extends StatelessWidget {
           ),
         ),
         if (trailingIcon != null) ...[
-          AppSpacing.horizontal(AppSpacing.xxs),
+          AppSpacing.horizontal(AppDimensions.xxs),
           IconTheme(
             data: IconThemeData(color: foreground, size: AppDimensions.iconMd),
             child: trailingIcon!,

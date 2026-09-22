@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
-import '../theme/app_spacing.dart';
 import '../theme/app_text_style.dart';
 import 'primary_text.dart';
 
@@ -13,7 +13,7 @@ class PrimaryAvatar extends StatelessWidget {
     this.imagePath,
     this.semanticLabel,
     this.fallbackText,
-    this.size = AppSpacing.xxxl,
+    this.size = 48,
     this.imageUrlResolver,
   });
 
@@ -40,6 +40,7 @@ class PrimaryAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final avatarSize = size.r;
     final colorScheme = Theme.of(context).colorScheme;
     final imageUrl = _resolveUrl(imagePath);
 
@@ -47,7 +48,7 @@ class PrimaryAvatar extends StatelessWidget {
       image: true,
       label: semanticLabel,
       child: SizedBox.square(
-        dimension: size,
+        dimension: avatarSize,
         child: DecoratedBox(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
@@ -56,14 +57,14 @@ class PrimaryAvatar extends StatelessWidget {
           ),
           child: ClipOval(
             child: imageUrl == null
-                ? _AvatarFallback(size: size, text: fallbackText)
+                ? _AvatarFallback(size: avatarSize, text: fallbackText)
                 : Image.network(
                     imageUrl,
-                    width: size,
-                    height: size,
+                    width: avatarSize,
+                    height: avatarSize,
                     fit: BoxFit.cover,
                     errorBuilder: (_, _, _) =>
-                        _AvatarFallback(size: size, text: fallbackText),
+                        _AvatarFallback(size: avatarSize, text: fallbackText),
                   ),
           ),
         ),
@@ -95,7 +96,7 @@ class _AvatarFallback extends StatelessWidget {
           : Icon(
               Icons.person_rounded,
               color: colorScheme.onPrimaryContainer,
-              size: size >= AppSpacing.xxxl
+              size: size >= AppDimensions.xxxl
                   ? AppDimensions.iconXLg
                   : AppDimensions.iconLg,
             ),

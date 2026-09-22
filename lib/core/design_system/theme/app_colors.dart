@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
-import 'app_spacing.dart';
+import 'app_dimensions.dart';
 
 abstract final class AppColors {
   // Primary color scale (Default Blue)
@@ -107,19 +108,19 @@ abstract final class AppColors {
   static const darkShadow = Color(0xFF000000);
 
   // Shadows
-  static final softShadow = [
+  static List<BoxShadow> get softShadow => [
     BoxShadow(
       color: primary900.withValues(alpha: 0.12),
-      blurRadius: AppSpacing.md,
-      offset: const Offset(0, AppSpacing.xs),
+      blurRadius: AppDimensions.md.r,
+      offset: Offset(0, AppDimensions.xs.h),
     ),
   ];
 
-  static final strongShadow = [
+  static List<BoxShadow> get strongShadow => [
     BoxShadow(
       color: primary900.withValues(alpha: 0.18),
-      blurRadius: AppSpacing.lg,
-      offset: const Offset(0, -AppSpacing.xs),
+      blurRadius: AppDimensions.lg.r,
+      offset: Offset(0, -AppDimensions.xs.h),
     ),
   ];
 }

@@ -17,7 +17,7 @@ class HomeTabView extends StatelessWidget {
       appBar: PrimaryAppBar(title: identity.name),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(AppSpacing.lg),
+          padding: EdgeInsets.all(AppDimensions.lg.r),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -41,7 +41,7 @@ class HomeTabView extends StatelessWidget {
                               backgroundColor: AppColors.primary,
                               child: Icon(Icons.person, color: Colors.white),
                             ),
-                            AppSpacing.horizontal(AppSpacing.md),
+                            AppSpacing.horizontal(AppDimensions.md),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class HomeTabView extends StatelessWidget {
                                     style: AppTextStyles.titleMedium,
                                   ),
                                   if (user?.userEmail != null) ...[
-                                    AppSpacing.vertical(AppSpacing.xxs),
+                                    AppSpacing.vertical(AppDimensions.xxs),
                                     PrimaryText(
                                       user!.userEmail!,
                                       style: AppTextStyles.bodySmall,
@@ -68,7 +68,7 @@ class HomeTabView extends StatelessWidget {
                   );
                 },
               ),
-              AppSpacing.vertical(AppSpacing.lg),
+              AppSpacing.vertical(AppDimensions.lg),
               PrimaryCard(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,13 +77,13 @@ class HomeTabView extends StatelessWidget {
                       context.tr('placeholder.description'),
                       style: AppTextStyles.bodyLarge,
                     ),
-                    AppSpacing.vertical(AppSpacing.md),
+                    AppSpacing.vertical(AppDimensions.md),
                     PrimaryText(
                       'Environment: ${identity.env}',
                       style: AppTextStyles.bodyMedium,
                       color: AppColors.inkMuted,
                     ),
-                    AppSpacing.vertical(AppSpacing.xs),
+                    AppSpacing.vertical(AppDimensions.xs),
                     PrimaryText(
                       'Flavor: ${identity.flavor}',
                       style: AppTextStyles.bodyMedium,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
 import '../theme/app_spacing.dart';
@@ -38,8 +39,8 @@ class PrimaryCheckbox extends StatelessWidget {
         children: [
           AnimatedContainer(
             duration: const Duration(milliseconds: 160),
-            width: variant == PrimaryCheckboxVariant.pill ? 44 : 22,
-            height: 22,
+            width: (variant == PrimaryCheckboxVariant.pill ? 44 : 22).w,
+            height: 22.h,
             decoration: BoxDecoration(
               color: value ? colorScheme.primary : colorScheme.surface,
               borderRadius: BorderRadius.circular(
@@ -59,7 +60,7 @@ class PrimaryCheckbox extends StatelessWidget {
                   )
                 : null,
           ),
-          AppSpacing.horizontal(AppSpacing.sm),
+          AppSpacing.horizontal(AppDimensions.sm),
           if (label != null)
             Expanded(
               child: PrimaryText(label!, style: AppTextStyles.bodyMedium),

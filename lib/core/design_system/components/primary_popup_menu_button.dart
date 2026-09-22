@@ -99,7 +99,7 @@ class _PrimaryPopupMenuItemContent<T> extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(item.icon, size: AppDimensions.iconMd, color: foreground),
-        AppSpacing.horizontal(AppSpacing.xs),
+        AppSpacing.horizontal(AppDimensions.xs),
         Flexible(
           child: PrimaryText(
             item.label,

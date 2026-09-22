@@ -285,7 +285,7 @@ abstract final class AppTheme {
                 : colorScheme.primary;
           }),
           overlayColor: _overlayColor(colorScheme.primary),
-          textStyle: const WidgetStatePropertyAll(AppTextStyles.button),
+          textStyle: WidgetStatePropertyAll(AppTextStyles.button),
         ),
       ),
       iconButtonTheme: IconButtonThemeData(
@@ -413,7 +413,7 @@ abstract final class AppTheme {
         modalBarrierColor: colorScheme.scrim.withValues(alpha: 0.44),
         dragHandleColor: colorScheme.outline,
         shadowColor: colorScheme.shadow.withValues(alpha: 0.18),
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(AppDimensions.radiusLg),
           ),
@@ -480,7 +480,7 @@ abstract final class AppTheme {
   }
 
   static TextTheme _textTheme(ColorScheme colorScheme) {
-    return const TextTheme(
+    return TextTheme(
       displayLarge: AppTextStyles.display,
       displayMedium: AppTextStyles.titleXXXLarge,
       displaySmall: AppTextStyles.titleXXLarge,
@@ -521,7 +521,7 @@ abstract final class AppTheme {
             ? colorScheme.onSurfaceVariant
             : colorScheme.onPrimary;
       }),
-      textStyle: const WidgetStatePropertyAll(AppTextStyles.button),
+      textStyle: WidgetStatePropertyAll(AppTextStyles.button),
       elevation: const WidgetStatePropertyAll(0),
       shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
@@ -556,7 +556,7 @@ abstract final class AppTheme {
               : colorScheme.primary,
         );
       }),
-      textStyle: const WidgetStatePropertyAll(AppTextStyles.button),
+      textStyle: WidgetStatePropertyAll(AppTextStyles.button),
       shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusMd),

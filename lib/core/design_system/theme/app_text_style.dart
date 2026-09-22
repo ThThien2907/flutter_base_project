@@ -1,177 +1,178 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import 'app_colors.dart';
 
 abstract final class AppTextStyles {
   static const String fontFamily = 'Afacad Flux';
 
-  static const display = TextStyle(
+  static TextStyle get display => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 32,
+    fontSize: 32.sp,
     fontWeight: FontWeight.w900,
     height: 1.18,
   );
 
-  static const displayLarge = TextStyle(
+  static TextStyle get displayLarge => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 30,
+    fontSize: 30.sp,
     fontWeight: FontWeight.w900,
     height: 1.18,
   );
 
-  static const displayMedium = TextStyle(
+  static TextStyle get displayMedium => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 28,
+    fontSize: 28.sp,
     fontWeight: FontWeight.w900,
     height: 1.18,
   );
 
-  static const displaySmall = TextStyle(
+  static TextStyle get displaySmall => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 26,
+    fontSize: 26.sp,
     fontWeight: FontWeight.w900,
     height: 1.18,
   );
 
-  static const titleXXXLarge = TextStyle(
+  static TextStyle get titleXXXLarge => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 24,
+    fontSize: 24.sp,
     fontWeight: FontWeight.w700,
     height: 1.25,
   );
 
-  static const titleXXLarge = TextStyle(
+  static TextStyle get titleXXLarge => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 22,
+    fontSize: 22.sp,
     fontWeight: FontWeight.w700,
     height: 1.25,
   );
 
-  static const titleXLarge = TextStyle(
+  static TextStyle get titleXLarge => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.w700,
     height: 1.25,
   );
 
-  static const titleLarge = TextStyle(
+  static TextStyle get titleLarge => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 18,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w700,
     height: 1.25,
   );
 
-  static const titleMedium = TextStyle(
+  static TextStyle get titleMedium => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w700,
   );
 
-  static const titleSmall = TextStyle(
+  static TextStyle get titleSmall => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w700,
   );
 
-  static const titleXSmall = TextStyle(
+  static TextStyle get titleXSmall => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle labelXLarge = TextStyle(
+  static TextStyle get labelXLarge => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.ink,
   );
 
-  static const TextStyle labelLarge = TextStyle(
+  static TextStyle get labelLarge => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 18,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.ink,
   );
 
-  static const TextStyle labelMedium = TextStyle(
+  static TextStyle get labelMedium => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.ink,
   );
 
-  static const TextStyle labelSmall = TextStyle(
+  static TextStyle get labelSmall => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.ink,
   );
 
-  static const TextStyle labelXSmall = TextStyle(
+  static TextStyle get labelXSmall => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.ink,
   );
 
-  static const bodyLarge = TextStyle(
+  static TextStyle get bodyLarge => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 18,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w400,
   );
 
-  static const bodyMedium = TextStyle(
+  static TextStyle get bodyMedium => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.inkMuted,
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w400,
   );
 
-  static const bodySmall = TextStyle(
+  static TextStyle get bodySmall => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.inkMuted,
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
 
-  static const bodyXSmall = TextStyle(
+  static TextStyle get bodyXSmall => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.inkMuted,
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
 
-  static const caption = TextStyle(
+  static TextStyle get caption => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.inkSoft,
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w500,
   );
 
-  static const button = TextStyle(
+  static TextStyle get button => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.surface,
-    fontSize: 17,
+    fontSize: 17.sp,
     fontWeight: FontWeight.w800,
     height: 1.2,
   );
 
-  static const input = TextStyle(
+  static TextStyle get input => TextStyle(
     fontFamily: fontFamily,
     color: AppColors.ink,
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w600,
     height: 1.25,
   );

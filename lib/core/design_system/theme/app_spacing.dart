@@ -1,17 +1,10 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 abstract final class AppSpacing {
-  static const xxxs = 2.0;
-  static const xxs = 4.0;
-  static const xs = 8.0;
-  static const sm = 12.0;
-  static const md = 16.0;
-  static const lg = 24.0;
-  static const xl = 32.0;
-  static const xxl = 40.0;
-  static const xxxl = 48.0;
-  static const xxxxl = 56.0;
+  /// A vertical gap scaled against the design height.
+  static SizedBox vertical(double value) => SizedBox(height: value.h);
 
-  static SizedBox vertical(double value) => SizedBox(height: value);
-  static SizedBox horizontal(double value) => SizedBox(width: value);
+  /// A horizontal gap scaled against the design width.
+  static SizedBox horizontal(double value) => SizedBox(width: value.w);
 }

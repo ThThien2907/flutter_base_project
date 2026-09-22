@@ -126,7 +126,7 @@ class _SplashPageState extends State<SplashPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(AppSpacing.lg),
+                            padding: EdgeInsets.all(AppDimensions.lg.r),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(
@@ -139,7 +139,7 @@ class _SplashPageState extends State<SplashPage> {
                               color: AppColors.primary,
                             ),
                           ),
-                          AppSpacing.vertical(AppSpacing.md),
+                          AppSpacing.vertical(AppDimensions.md),
                           PrimaryText(
                             identity.name,
                             style: AppTextStyles.titleLarge.copyWith(
@@ -147,7 +147,7 @@ class _SplashPageState extends State<SplashPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          AppSpacing.vertical(AppSpacing.sm),
+                          AppSpacing.vertical(AppDimensions.sm),
                           PrimaryText(
                             context.tr('splash.loading'),
                             style: AppTextStyles.bodyMedium.copyWith(
@@ -163,7 +163,7 @@ class _SplashPageState extends State<SplashPage> {
                           color: Colors.black54,
                           child: Center(
                             child: PrimaryCard(
-                              padding: const EdgeInsets.all(AppSpacing.lg),
+                              padding: EdgeInsets.all(AppDimensions.lg.r),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -172,14 +172,14 @@ class _SplashPageState extends State<SplashPage> {
                                     size: 48,
                                     color: AppColors.error,
                                   ),
-                                  AppSpacing.vertical(AppSpacing.sm),
+                                  AppSpacing.vertical(AppDimensions.sm),
                                   PrimaryText(
                                     errorMessage?.tr() ??
                                         context.tr('splash.retry_session'),
                                     style: AppTextStyles.bodyMedium,
                                     textAlign: TextAlign.center,
                                   ),
-                                  AppSpacing.vertical(AppSpacing.md),
+                                  AppSpacing.vertical(AppDimensions.md),
                                   PrimaryButton.filled(
                                     label: context.tr('retry'),
                                     onPressed: () {

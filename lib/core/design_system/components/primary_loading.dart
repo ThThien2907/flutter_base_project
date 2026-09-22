@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
+import '../theme/app_dimensions.dart';
 import '../theme/app_spacing.dart';
 import '../theme/app_text_style.dart';
 import 'primary_card.dart';
@@ -102,21 +104,21 @@ class _PrimaryLoadingView extends StatelessWidget {
               color: Colors.transparent,
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(AppSpacing.xl),
+                  padding: EdgeInsets.all(AppDimensions.xl.r),
                   child: PrimaryCard(
-                    padding: const EdgeInsets.all(AppSpacing.lg),
+                    padding: EdgeInsets.all(AppDimensions.lg.r),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.w,
+                          height: 50.h,
                           child: LoadingAnimationWidget.staggeredDotsWave(
                             color: Theme.of(context).colorScheme.primary,
                             size: 50,
                           ),
                         ),
-                        AppSpacing.vertical(AppSpacing.md),
+                        AppSpacing.vertical(AppDimensions.md),
                         ValueListenableBuilder<String>(
                           valueListenable: titleNotifier,
                           builder: (_, title, _) {

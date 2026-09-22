@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
-import '../theme/app_spacing.dart';
 import 'primary_dialog.dart';
 
 class PrimaryDismissible extends StatelessWidget {
@@ -39,12 +39,12 @@ class PrimaryDismissible extends StatelessWidget {
       onDismissed: onDismissed,
       background: Container(
         alignment: Alignment.centerRight,
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm),
+        padding: EdgeInsets.symmetric(horizontal: AppDimensions.sm.r),
         decoration: BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
         ),
-        child: const Icon(
+        child: Icon(
           Icons.delete_rounded,
           color: Colors.white,
           size: AppDimensions.iconMd,

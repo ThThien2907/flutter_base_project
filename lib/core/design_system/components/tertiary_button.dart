@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
 import '../theme/app_spacing.dart';
@@ -31,9 +32,9 @@ class TertiaryButton extends StatelessWidget {
       child: SizedBox(
         height: height,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.xs,
-            vertical: AppSpacing.xs,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.xs.r,
+            vertical: AppDimensions.xs.r,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -46,7 +47,7 @@ class TertiaryButton extends StatelessWidget {
                   ),
                   child: icon!,
                 ),
-                AppSpacing.horizontal(AppSpacing.xs),
+                AppSpacing.horizontal(AppDimensions.xs),
               ],
               PrimaryText(
                 label,

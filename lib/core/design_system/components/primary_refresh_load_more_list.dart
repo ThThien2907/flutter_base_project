@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_dimensions.dart';
 import '../theme/app_spacing.dart';
@@ -48,9 +49,9 @@ class PrimaryRefreshLoadMoreList<T> extends StatelessWidget {
         onRefresh: onRefresh,
         child: ListView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: padding ?? const EdgeInsets.all(AppSpacing.lg),
+          padding: padding ?? EdgeInsets.all(AppDimensions.lg.r),
           children: [
-            AppSpacing.vertical(AppSpacing.xxl),
+            AppSpacing.vertical(AppDimensions.xxl),
             emptyWidget ?? const AppEmptyState(message: ''),
           ],
         ),
@@ -74,16 +75,16 @@ class PrimaryRefreshLoadMoreList<T> extends StatelessWidget {
           physics: const AlwaysScrollableScrollPhysics(),
           padding:
               padding ??
-              const EdgeInsets.fromLTRB(
-                AppSpacing.md,
-                AppSpacing.sm,
-                AppSpacing.md,
-                AppSpacing.lg,
+              EdgeInsets.fromLTRB(
+                AppDimensions.md.r,
+                AppDimensions.sm.r,
+                AppDimensions.md.r,
+                AppDimensions.lg.r,
               ),
           itemCount:
               items.length + (isLoadingMore || _hasLoadMoreError ? 1 : 0),
           separatorBuilder:
-              separatorBuilder ?? (_, _) => AppSpacing.vertical(AppSpacing.sm),
+              separatorBuilder ?? (_, _) => AppSpacing.vertical(AppDimensions.sm),
           itemBuilder: (context, index) {
             if (index >= items.length) {
               return _PrimaryRefreshLoadMoreFooter(
@@ -118,9 +119,9 @@ class _PrimaryRefreshLoadMoreFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return const Center(
+      return Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: AppSpacing.md),
+          padding: EdgeInsets.symmetric(vertical: AppDimensions.md.r),
           child: SizedBox(
             width: AppDimensions.iconLg,
             height: AppDimensions.iconLg,
@@ -136,7 +137,7 @@ class _PrimaryRefreshLoadMoreFooter extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
+      padding: EdgeInsets.symmetric(vertical: AppDimensions.sm.r),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -145,7 +146,7 @@ class _PrimaryRefreshLoadMoreFooter extends StatelessWidget {
             style: AppTextStyles.bodyMedium,
             textAlign: TextAlign.center,
           ),
-          AppSpacing.vertical(AppSpacing.sm),
+          AppSpacing.vertical(AppDimensions.sm),
           PrimaryButton.outlined(
             label: retryLabel ?? '',
             onPressed: onRetry,

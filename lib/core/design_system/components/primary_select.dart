@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:flutter/scheduler.dart';
 
 import '../theme/app_colors.dart';
@@ -242,7 +243,7 @@ class _PrimarySelectState<T> extends State<PrimarySelect<T>> {
 
     return OverlayEntry(
       builder: (context) {
-        const dropdownGap = AppSpacing.xxs;
+        final dropdownGap = AppDimensions.xxs.h;
         final mediaQuery = MediaQuery.of(context);
         final fieldOffset =
             renderBox?.localToGlobal(Offset.zero) ?? Offset.zero;
@@ -322,7 +323,7 @@ class _PrimarySelectState<T> extends State<PrimarySelect<T>> {
         children: [
           if (widget.label != null) ...[
             PrimaryText(widget.label!, style: AppTextStyles.bodyLarge),
-            AppSpacing.vertical(AppSpacing.xs),
+            AppSpacing.vertical(AppDimensions.xs),
           ],
           GestureDetector(
             key: _fieldKey,
@@ -334,14 +335,14 @@ class _PrimarySelectState<T> extends State<PrimarySelect<T>> {
                 fillColor: _isEnabled
                     ? colorScheme.surface
                     : colorScheme.outlineVariant,
-                constraints: const BoxConstraints(
-                  minHeight: AppDimensions.inputHeight,
+                constraints: BoxConstraints(
+                  minHeight: AppDimensions.inputHeight.h,
                 ),
                 contentPadding: EdgeInsets.symmetric(
-                  horizontal: AppSpacing.xs,
+                  horizontal: AppDimensions.xs.r,
                   vertical: widget.prefixIcon == null
-                      ? AppSpacing.md
-                      : AppSpacing.xs,
+                      ? AppDimensions.md.r
+                      : AppDimensions.xs.r,
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(AppDimensions.radiusSm),
@@ -361,7 +362,7 @@ class _PrimarySelectState<T> extends State<PrimarySelect<T>> {
                 children: [
                   if (widget.prefixIcon != null) ...[
                     PrimaryFieldIconSlot(child: widget.prefixIcon!),
-                    AppSpacing.horizontal(AppSpacing.sm),
+                    AppSpacing.horizontal(AppDimensions.sm),
                   ],
                   Expanded(
                     child: PrimaryText(
@@ -474,7 +475,7 @@ class _SearchableSelectSheetState<T> extends State<_SearchableSelectSheet<T>> {
         heightFactor: 0.86,
         child: Material(
           color: colorScheme.surface,
-          borderRadius: const BorderRadius.vertical(
+          borderRadius: BorderRadius.vertical(
             top: Radius.circular(AppDimensions.radiusMd),
           ),
           clipBehavior: Clip.antiAlias,
@@ -483,21 +484,21 @@ class _SearchableSelectSheetState<T> extends State<_SearchableSelectSheet<T>> {
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
             child: Column(
               children: [
-                AppSpacing.vertical(AppSpacing.xs),
+                AppSpacing.vertical(AppDimensions.xs),
                 Container(
-                  width: 40,
-                  height: 4,
+                  width: 40.w,
+                  height: 4.h,
                   decoration: BoxDecoration(
                     color: colorScheme.outlineVariant,
                     borderRadius: BorderRadius.circular(AppDimensions.radiusXs),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    AppSpacing.md,
-                    AppSpacing.md,
-                    AppSpacing.md,
-                    AppSpacing.sm,
+                  padding: EdgeInsets.fromLTRB(
+                    AppDimensions.md.r,
+                    AppDimensions.md.r,
+                    AppDimensions.md.r,
+                    AppDimensions.sm.r,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -506,7 +507,7 @@ class _SearchableSelectSheetState<T> extends State<_SearchableSelectSheet<T>> {
                         widget.title,
                         style: AppTextStyles.titleMedium,
                       ),
-                      AppSpacing.vertical(AppSpacing.sm),
+                      AppSpacing.vertical(AppDimensions.sm),
                       _SelectSearchField(
                         controller: _searchController,
                         focusNode: _searchFocusNode,
@@ -519,7 +520,7 @@ class _SearchableSelectSheetState<T> extends State<_SearchableSelectSheet<T>> {
                   child: _filteredItems.isEmpty
                       ? Center(
                           child: Padding(
-                            padding: const EdgeInsets.all(AppSpacing.md),
+                            padding: EdgeInsets.all(AppDimensions.md.r),
                             child: PrimaryText(
                               widget.hintText,
                               style: AppTextStyles.bodyMedium,
@@ -533,10 +534,10 @@ class _SearchableSelectSheetState<T> extends State<_SearchableSelectSheet<T>> {
                       : ListView.separated(
                           keyboardDismissBehavior:
                               ScrollViewKeyboardDismissBehavior.onDrag,
-                          padding: const EdgeInsets.only(bottom: AppSpacing.md),
+                          padding: EdgeInsets.only(bottom: AppDimensions.md.r),
                           itemCount: _filteredItems.length,
                           separatorBuilder: (_, _) => Divider(
-                            height: 1,
+                            height: 1.h,
                             color: colorScheme.outlineVariant,
                           ),
                           itemBuilder: (context, index) {
@@ -547,9 +548,9 @@ class _SearchableSelectSheetState<T> extends State<_SearchableSelectSheet<T>> {
                             return InkWell(
                               onTap: () => Navigator.of(context).pop(item),
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: AppSpacing.md,
-                                  vertical: AppSpacing.sm,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: AppDimensions.md.r,
+                                  vertical: AppDimensions.sm.r,
                                 ),
                                 child: Row(
                                   children: [
@@ -662,7 +663,7 @@ class _DropdownMenu<T> extends StatelessWidget {
           children: [
             if (searchable)
               Padding(
-                padding: const EdgeInsets.all(AppSpacing.sm),
+                padding: EdgeInsets.all(AppDimensions.sm.r),
                 child: _SelectSearchField(
                   controller: searchController,
                   focusNode: searchFocusNode,
@@ -675,15 +676,15 @@ class _DropdownMenu<T> extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 itemCount: items.length,
                 separatorBuilder: (_, _) =>
-                    Divider(height: 1, color: colorScheme.outlineVariant),
+                    Divider(height: 1.h, color: colorScheme.outlineVariant),
                 itemBuilder: (context, index) {
                   final item = items[index];
                   return InkWell(
                     onTap: () => onSelected(item),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: AppSpacing.md,
-                        vertical: AppSpacing.sm,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppDimensions.md.r,
+                        vertical: AppDimensions.sm.r,
                       ),
                       child: PrimaryText(
                         item.label,

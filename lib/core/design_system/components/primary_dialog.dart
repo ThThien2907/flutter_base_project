@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_dimensions.dart';
@@ -29,41 +30,41 @@ class PrimaryDialog {
       pageBuilder: (dialogContext, animation, child) {
         return _CustomDialogView(
           headerIcon: Container(
-            width: _headerIconSize,
-            height: _headerIconSize,
+            width: _headerIconSize.w,
+            height: _headerIconSize.h,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.info,
             ),
-            child: const Icon(
+            child: Icon(
               Icons.notifications,
-              size: AppSpacing.lg,
+              size: AppDimensions.lg.r,
               color: AppColors.infoLight,
             ),
           ),
           body: Column(
             children: [
-              AppSpacing.vertical(AppSpacing.md),
+              AppSpacing.vertical(AppDimensions.md),
               PrimaryText(
                 title.tr(),
                 style: AppTextStyles.titleLarge,
                 textAlign: TextAlign.center,
               ),
               if (message != null) ...[
-                AppSpacing.vertical(AppSpacing.md),
+                AppSpacing.vertical(AppDimensions.md),
                 PrimaryText(
                   message.tr(namedArgs: messageNamedArgs),
                   style: AppTextStyles.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
               ],
-              AppSpacing.vertical(AppSpacing.md),
+              AppSpacing.vertical(AppDimensions.md),
             ],
           ),
           bottomActions: secondaryButtonText == null
               ? PrimaryButton.filled(
                   label: closeText.tr(),
-                  height: AppDimensions.smallButtonHeight,
+                  height: AppDimensions.smallButtonHeight.h,
                   onPressed: () {
                     Navigator.pop(dialogContext, true);
                     onClosed?.call();
@@ -74,18 +75,18 @@ class PrimaryDialog {
                     Expanded(
                       child: PrimaryButton.outlined(
                         label: secondaryButtonText.tr(),
-                        height: AppDimensions.smallButtonHeight,
+                        height: AppDimensions.smallButtonHeight.h,
                         onPressed: () {
                           Navigator.pop(dialogContext, false);
                           onSecondaryTapped?.call();
                         },
                       ),
                     ),
-                    AppSpacing.horizontal(AppSpacing.sm),
+                    AppSpacing.horizontal(AppDimensions.sm),
                     Expanded(
                       child: PrimaryButton.filled(
                         label: closeText.tr(),
-                        height: AppDimensions.smallButtonHeight,
+                        height: AppDimensions.smallButtonHeight.h,
                         onPressed: () {
                           Navigator.pop(dialogContext, true);
                           onClosed?.call();
@@ -144,35 +145,35 @@ class PrimaryDialog {
       context: context,
       pageBuilder: (dialogContext, n, m) => _CustomDialogView(
         headerIcon: Container(
-          width: _headerIconSize,
-          height: _headerIconSize,
+          width: _headerIconSize.w,
+          height: _headerIconSize.h,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.success,
           ),
-          child: const Icon(
+          child: Icon(
             Icons.check_rounded,
-            size: AppSpacing.lg,
+            size: AppDimensions.lg.r,
             color: AppColors.successLight,
           ),
         ),
         body: Column(
           children: [
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
             PrimaryText(
               title.tr(),
               style: AppTextStyles.titleLarge,
               textAlign: TextAlign.center,
             ),
             if (message != null) ...[
-              AppSpacing.vertical(AppSpacing.md),
+              AppSpacing.vertical(AppDimensions.md),
               PrimaryText(
                 message.tr(),
                 style: AppTextStyles.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ],
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
           ],
         ),
         bottomActions: negativeButtonText == null
@@ -181,7 +182,7 @@ class PrimaryDialog {
                     positiveButtonText?.tr() ??
                     closeText?.tr() ??
                     context.tr("close"),
-                height: AppDimensions.smallButtonHeight,
+                height: AppDimensions.smallButtonHeight.h,
                 onPressed: () {
                   Navigator.pop(dialogContext, true);
                   if (onPositiveTapped != null) {
@@ -196,21 +197,21 @@ class PrimaryDialog {
                   Expanded(
                     child: PrimaryButton.outlined(
                       label: negativeButtonText.tr(),
-                      height: AppDimensions.smallButtonHeight,
+                      height: AppDimensions.smallButtonHeight.h,
                       onPressed: () {
                         Navigator.pop(dialogContext, false);
                         onNegativeTapped?.call();
                       },
                     ),
                   ),
-                  AppSpacing.horizontal(AppSpacing.sm),
+                  AppSpacing.horizontal(AppDimensions.sm),
                   Expanded(
                     child: PrimaryButton.filled(
                       label:
                           positiveButtonText?.tr() ??
                           closeText?.tr() ??
                           context.tr("close"),
-                      height: AppDimensions.smallButtonHeight,
+                      height: AppDimensions.smallButtonHeight.h,
                       onPressed: () {
                         Navigator.pop(dialogContext, true);
                         if (onPositiveTapped != null) {
@@ -238,38 +239,38 @@ class PrimaryDialog {
       context: context,
       pageBuilder: (dialogContext, n, m) => _CustomDialogView(
         headerIcon: Container(
-          width: _headerIconSize,
-          height: _headerIconSize,
+          width: _headerIconSize.w,
+          height: _headerIconSize.h,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.error,
           ),
-          child: const Icon(
+          child: Icon(
             Icons.close_rounded,
-            size: AppSpacing.lg,
+            size: AppDimensions.lg.r,
             color: AppColors.errorLight,
           ),
         ),
         body: Column(
           children: [
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
             PrimaryText(
               title.tr(),
               style: AppTextStyles.titleLarge,
               textAlign: TextAlign.center,
             ),
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
             PrimaryText(
               (message ?? "error.generic").tr(),
               style: AppTextStyles.bodyLarge,
               textAlign: TextAlign.center,
             ),
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
           ],
         ),
         bottomActions: PrimaryButton.filled(
           label: buttonText ?? context.tr("close"),
-          height: AppDimensions.smallButtonHeight,
+          height: AppDimensions.smallButtonHeight.h,
           onPressed: () {
             Navigator.pop(dialogContext, true);
             onClosed?.call();
@@ -292,35 +293,35 @@ class PrimaryDialog {
       context: context,
       pageBuilder: (dialogContext, n, m) => _CustomDialogView(
         headerIcon: Container(
-          width: _headerIconSize,
-          height: _headerIconSize,
+          width: _headerIconSize.w,
+          height: _headerIconSize.h,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.warning,
           ),
-          child: const Icon(
+          child: Icon(
             Icons.warning_amber_rounded,
-            size: AppSpacing.lg,
+            size: AppDimensions.lg.r,
             color: AppColors.warningLight,
           ),
         ),
         body: Column(
           children: [
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
             PrimaryText(
               title.tr(),
               style: AppTextStyles.titleLarge,
               textAlign: TextAlign.center,
             ),
             if (message != null) ...[
-              AppSpacing.vertical(AppSpacing.md),
+              AppSpacing.vertical(AppDimensions.md),
               PrimaryText(
                 message.tr(),
                 style: AppTextStyles.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ],
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
           ],
         ),
         bottomActions: Row(
@@ -328,18 +329,18 @@ class PrimaryDialog {
             Expanded(
               child: PrimaryButton.outlined(
                 label: negativeButtonText.tr(),
-                height: AppDimensions.smallButtonHeight,
+                height: AppDimensions.smallButtonHeight.h,
                 onPressed: () {
                   Navigator.pop(dialogContext, false);
                   onNegativeTapped?.call();
                 },
               ),
             ),
-            AppSpacing.horizontal(AppSpacing.sm),
+            AppSpacing.horizontal(AppDimensions.sm),
             Expanded(
               child: PrimaryButton.filled(
                 label: positiveButtonText.tr(),
-                height: AppDimensions.smallButtonHeight,
+                height: AppDimensions.smallButtonHeight.h,
                 onPressed: () {
                   Navigator.pop(dialogContext, true);
                   onPositiveTapped?.call();
@@ -374,35 +375,35 @@ class PrimaryDialog {
       context: context,
       pageBuilder: (dialogContext, n, m) => _CustomDialogView(
         headerIcon: Container(
-          width: _headerIconSize,
-          height: _headerIconSize,
+          width: _headerIconSize.w,
+          height: _headerIconSize.h,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.info,
           ),
-          child: const Icon(
+          child: Icon(
             Icons.question_mark_rounded,
-            size: AppSpacing.lg,
+            size: AppDimensions.lg.r,
             color: AppColors.infoLight,
           ),
         ),
         body: Column(
           children: [
-            AppSpacing.vertical(AppSpacing.md),
+            AppSpacing.vertical(AppDimensions.md),
             PrimaryText(
               title.tr(),
               style: AppTextStyles.titleLarge,
               textAlign: TextAlign.center,
             ),
             if (message != null) ...[
-              AppSpacing.vertical(AppSpacing.sm),
+              AppSpacing.vertical(AppDimensions.sm),
               PrimaryText(
                 message.tr(),
                 style: AppTextStyles.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ],
-            AppSpacing.vertical(AppSpacing.sm),
+            AppSpacing.vertical(AppDimensions.sm),
           ],
         ),
         bottomActions: Row(
@@ -410,18 +411,18 @@ class PrimaryDialog {
             Expanded(
               child: PrimaryButton.outlined(
                 label: negativeButtonText.tr(),
-                height: AppDimensions.smallButtonHeight,
+                height: AppDimensions.smallButtonHeight.h,
                 onPressed: () {
                   Navigator.pop(dialogContext, false);
                   onNegativeTapped?.call();
                 },
               ),
             ),
-            AppSpacing.horizontal(AppSpacing.sm),
+            AppSpacing.horizontal(AppDimensions.sm),
             Expanded(
               child: PrimaryButton.filled(
                 label: positiveButtonText.tr(),
-                height: AppDimensions.smallButtonHeight,
+                height: AppDimensions.smallButtonHeight.h,
                 onPressed: () {
                   Navigator.pop(dialogContext, true);
                   onPositiveTapped?.call();
@@ -497,11 +498,11 @@ class _CustomDialogView extends StatelessWidget {
       canPop: canPop,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.sm),
+          padding: EdgeInsets.all(AppDimensions.sm.r),
           child: Material(
             color: Colors.transparent,
             child: PrimaryCard(
-              padding: padding ?? const EdgeInsets.all(AppSpacing.md),
+              padding: padding ?? EdgeInsets.all(AppDimensions.md.r),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
